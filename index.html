@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubh Nav Varsh 2026 | New Year Celebration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Tiro+Devanagari+Hindi:ital@0;1&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --deep-maroon: #4B0000;
+            --gold: #D4AF37;
+            --sacred-red: #800000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--deep-maroon);
+            color: #fff2cc;
+            font-family: 'Tiro Devanagari Hindi', serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            user-select: none;
+        }
+
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-hindi { font-family: 'Tiro Devanagari Hindi', serif; }
+
+        /* Traditional Indian Background */
+        .bg-temple {
+            background: radial-gradient(circle at center, #800000 0%, #4B0000 100%);
+            position: relative;
+        }
+
+        /* Mandala Pattern Background */
+        .mandala-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120vh;
+            height: 120vh;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath fill='%23D4AF37' fill-opacity='0.05' d='M200 0c110.457 0 200 89.543 200 200s-89.543 200-200 200S0 310.457 0 200 89.543 0 200 0zm0 20c-99.411 0-180 80.589-180 180s80.589 180 180 180 180-80.589 180-180S299.411 20 200 20zm0 20c88.366 0 160 71.634 160 160s-71.634 160-160 160S40 288.366 40 200 111.634 40 200 40zm0 20c-77.32 0-140 62.68-140 140s62.68 140 140 140 140-62.68 140-140S277.32 60 200 60z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            animation: rotateMandala 100s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes rotateMandala {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Year Transition */
+        .year-container {
+            display: inline-flex;
+            overflow: hidden;
+            height: 1.2em;
+            line-height: 1.2em;
+            position: relative;
+        }
+        
+        .digit-strip {
+            display: flex;
+            flex-direction: column;
+            transition: transform 2.5s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .digit-strip.celebrate {
+            transform: translateY(-50%);
+        }
+
+        /* Diya (Lamp) Animation */
+        .diya-container {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 40px;
+            z-index: 30;
+        }
+
+        .diya {
+            width: 40px;
+            height: 25px;
+            background: #cd7f32;
+            border-radius: 0 0 50px 50px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: linear-gradient(to bottom, #fff, #ff9933, #ff0000);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -22px;
+            left: 12px;
+            animation: flicker 0.1s infinite alternate;
+            filter: blur(1px);
+            box-shadow: 0 0 20px #ff9933;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+            100% { transform: scale(1.1) rotate(1deg); opacity: 1; }
+        }
+
+        /* Fireworks Layer */
+        #fireworksCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Gold Bordered Cards */
+        .sacred-card {
+            background: rgba(75, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .sacred-card::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid var(--gold);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .glow-gold {
+            color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        section {
+            position: relative;
+            z-index: 20;
+        }
+
+        .instagram-btn {
+            background: linear-gradient(135deg, #800000, #4B0000);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            transition: all 0.4s ease;
+        }
+
+        .instagram-btn:hover {
+            background: var(--gold);
+            color: var(--deep-maroon);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        /* Scroll Hint */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-temple">
+
+    <div class="mandala-bg"></div>
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Page 1: Hero & Countdown -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center px-4 text-center cursor-crosshair">
+        <div class="z-10">
+            <h2 id="heroSub" class="font-hindi text-2xl md:text-3xl tracking-[0.2em] text-orange-400 mb-4 font-bold">शुभ नव वर्ष</h2>
+            
+            <div class="font-cinzel text-7xl md:text-[10rem] font-black flex items-center justify-center leading-none glow-gold">
+                <span>202</span>
+                <div class="year-container">
+                    <div id="digitStrip" class="digit-strip">
+                        <span>5</span>
+                        <span style="color: #fff">6</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-gold tracking-[0.5em] uppercase text-sm mt-4 font-bold opacity-80">Welcoming the year 2026</p>
+
+            <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-6 mt-16">
+                <div class="sacred-card p-6 rounded-lg min-w-[100px] md:min-w-[140px]">
+                    <span id="days" class="block text-4xl md:text-6xl font-bold glow-gold">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-orange-400 mt-2 block">दिन (Days)</span>
+                </div>
+                <div class="sacred-card p-6 rounded-lg min-w-[100px] md:min-w-[140px]">
+                    <span id="hours" class="block text-4xl md:text-6xl font-bold glow-gold">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-orange-400 mt-2 block">घंटे (Hours)</span>
+                </div>
+                <div class="sacred-card p-6 rounded-lg min-w-[100px] md:min-w-[140px]">
+                    <span id="minutes" class="block text-4xl md:text-6xl font-bold glow-gold">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-orange-400 mt-2 block">मिनट (Mins)</span>
+                </div>
+                <div class="sacred-card p-6 rounded-lg min-w-[100px] md:min-w-[140px]">
+                    <span id="seconds" class="block text-4xl md:text-6xl font-bold glow-gold">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-orange-400 mt-2 block">सेकंड (Secs)</span>
+                </div>
+            </div>
+
+            <div id="celebrationMessage" class="mt-12 text-2xl md:text-4xl font-hindi italic text-white hidden animate-pulse">
+                नव वर्ष २०२६ की हार्दिक शुभकामनाएं!
+            </div>
+        </div>
+
+        <!-- Decorative Diyas -->
+        <div class="diya-container">
+            <div class="diya"><div class="flame"></div></div>
+            <div class="diya hidden md:block"><div class="flame"></div></div>
+            <div class="diya hidden md:block"><div class="flame"></div></div>
+            <div class="diya"><div class="flame"></div></div>
+        </div>
+
+        <div class="scroll-down pointer-events-none opacity-50">
+            <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Page 2: Motivational/Spiritual Quote -->
+    <section id="quote" class="min-h-screen flex items-center justify-center px-8 bg-black/10">
+        <div class="max-w-4xl text-center">
+            <div class="mb-8 opacity-40">
+                <svg width="60" height="60" viewBox="0 0 100 100" fill="var(--gold)">
+                    <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
+                </svg>
+            </div>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-hindi leading-relaxed mb-10 text-orange-100">
+                "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। <br>
+                <span class="text-gold font-cinzel text-2xl md:text-4xl block mt-4">Focus on your actions, and 2026 will bring the rewards."</span>
+            </h2>
+            <div class="h-1 w-24 bg-gold mx-auto rounded-full opacity-50"></div>
+            <p class="mt-8 text-orange-300 tracking-[0.3em] uppercase text-sm font-bold">Peace • Prosperity • Progress</p>
+        </div>
+    </section>
+
+    <!-- Page 3: Footer -->
+    <section id="footer" class="min-h-[70vh] flex flex-col items-center justify-center px-4">
+        <div class="sacred-card p-12 md:p-16 rounded-2xl text-center max-w-xl w-full">
+            <p class="text-orange-400 font-bold uppercase tracking-[0.3em] text-xs mb-4 italic">Crafted with Devotion</p>
+            <h3 class="font-cinzel text-4xl md:text-5xl font-black mb-10 tracking-widest text-white">MADED BY :-</h3>
+            
+            <h4 class="text-3xl font-hindi mb-12 text-gold tracking-widest">AYUSHMAN PANDA</h4>
+            
+            <div class="flex flex-col gap-4 w-full">
+                <a href="https://www.instagram.com/curiodynam/" target="_blank" class="instagram-btn group inline-flex items-center justify-center gap-4 px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl hover:scale-105 active:scale-95">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Connect on Instagram
+                </a>
+
+                <button onclick="shareOnWhatsApp()" class="instagram-btn group inline-flex items-center justify-center gap-4 px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl hover:scale-105 active:scale-95">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    Share on WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- Countdown Logic ---
+        const targetDate = new Date("January 1, 2026 00:00:00").getTime();
+        let celebrated = false;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                
+                if (!celebrated) triggerCelebration();
+                return;
+            }
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function triggerCelebration() {
+            celebrated = true;
+            document.getElementById('digitStrip').classList.add('celebrate');
+            document.getElementById('celebrationMessage').classList.remove('hidden');
+            
+            // Automatic Show for 10 seconds - High density Gold/Red fireworks
+            const endTime = Date.now() + 10000;
+            const intenseShow = setInterval(() => {
+                if (Date.now() > endTime) {
+                    clearInterval(intenseShow);
+                } else {
+                    createFirework(Math.random() * canvas.width, Math.random() * (canvas.height * 0.7));
+                }
+            }, 200);
+        }
+
+        // --- Sharing Logic ---
+        function shareOnWhatsApp() {
+            const message = "Shubh Nav Varsh 2026! ✨🙏 Check out this beautiful New Year celebration site:";
+            const url = window.location.href;
+            const fullMessage = encodeURIComponent(message + " " + url);
+            window.open(`https://api.whatsapp.com/send?text=${fullMessage}`, '_blank');
+        }
+
+        // --- Interaction Logic ---
+        window.addEventListener('mousedown', (e) => {
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            createFirework(e.clientX, e.clientY);
+        });
+
+        window.addEventListener('touchstart', (e) => {
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            createFirework(e.touches[0].clientX, e.touches[0].clientY);
+        });
+
+        // --- Fireworks Animation Engine ---
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                const angle = Math.random() * Math.PI * 2;
+                const force = Math.random() * 8 + 2;
+                this.velocity = {
+                    x: Math.cos(angle) * force,
+                    y: Math.sin(angle) * force
+                };
+                this.alpha = 1;
+                this.friction = 0.96;
+                this.gravity = 0.12;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 1.8, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+
+            update() {
+                this.velocity.x *= this.friction;
+                this.velocity.y *= this.friction;
+                this.velocity.y += this.gravity;
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                this.alpha -= 0.015;
+            }
+        }
+
+        function createFirework(x, y) {
+            // Traditional Celebration Colors (Gold, Saffron, Maroon, White)
+            const colors = ['#D4AF37', '#FF9933', '#FFFFFF', '#FFD700', '#800000'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            for (let i = 0; i < 40; i++) {
+                particles.push(new Particle(x, y, color));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.fillStyle = 'rgba(75, 0, 0, 0.2)'; // Fading maroon trails
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p, i) => {
+                if (p.alpha > 0) {
+                    p.update();
+                    p.draw();
+                } else {
+                    particles.splice(i, 1);
+                }
+            });
+        }
+        animate();
+    </script>
+</body>
+</html>
